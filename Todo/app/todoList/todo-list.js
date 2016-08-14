@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../services/todo-service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../services/todo-service', '../todo-render/todo-render', '../searchPipe/search-pipe'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../services/todo-service'], function(exports_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, todo_service_1;
+    var core_1, todo_service_1, todo_render_1, search_pipe_1;
     var TodoList;
     return {
         setters:[
@@ -19,6 +19,12 @@ System.register(['angular2/core', '../services/todo-service'], function(exports_
             },
             function (todo_service_1_1) {
                 todo_service_1 = todo_service_1_1;
+            },
+            function (todo_render_1_1) {
+                todo_render_1 = todo_render_1_1;
+            },
+            function (search_pipe_1_1) {
+                search_pipe_1 = search_pipe_1_1;
             }],
         execute: function() {
             TodoList = (function () {
@@ -28,10 +34,11 @@ System.register(['angular2/core', '../services/todo-service'], function(exports_
                 TodoList = __decorate([
                     core_1.Component({
                         selector: 'todo-list',
+                        directives: [todo_render_1.TodoRender],
+                        pipes: [search_pipe_1.SearchPipe],
                         template: '<ul>\
-        <li *ngFor="#ts of todoservice.todos"> \
-            <span [hidden] = "ts.status == \'completed\'">{{ts.title}}</span>\
-            <div>{{ts.status}}</div>\
+        <li *ngFor="#ts of todoservice.todos | search">\
+            <todo-render [todo] = "ts"></todo-render>\
             <button (click) = ts.toggled()>Toggled</button>\
         </li>\
         </ul>'
