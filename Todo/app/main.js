@@ -1,7 +1,7 @@
-System.register(['angular2/platform/browser', './app.helloworld'], function(exports_1, context_1) {
+System.register(['angular2/platform/browser', './app.helloworld', "./services/todo-service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var browser_1, app_helloworld_1;
+    var browser_1, app_helloworld_1, todo_service_1;
     return {
         setters:[
             function (browser_1_1) {
@@ -9,9 +9,12 @@ System.register(['angular2/platform/browser', './app.helloworld'], function(expo
             },
             function (app_helloworld_1_1) {
                 app_helloworld_1 = app_helloworld_1_1;
+            },
+            function (todo_service_1_1) {
+                todo_service_1 = todo_service_1_1;
             }],
         execute: function() {
-            browser_1.bootstrap(app_helloworld_1.AppComponent);
+            browser_1.bootstrap(app_helloworld_1.AppComponent, [todo_service_1.TodoService]);
         }
     }
 });

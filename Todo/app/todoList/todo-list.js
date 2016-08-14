@@ -1,4 +1,4 @@
-System.register(['angular2/core', './todo-input', './todoList/todo-list'], function(exports_1, context_1) {
+System.register(['angular2/core', '../services/todo-service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,35 +10,39 @@ System.register(['angular2/core', './todo-input', './todoList/todo-list'], funct
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, todo_input_1, todo_list_1;
-    var AppComponent;
+    var core_1, todo_service_1;
+    var TodoList;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (todo_input_1_1) {
-                todo_input_1 = todo_input_1_1;
-            },
-            function (todo_list_1_1) {
-                todo_list_1 = todo_list_1_1;
+            function (todo_service_1_1) {
+                todo_service_1 = todo_service_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            TodoList = (function () {
+                function TodoList(todoservice) {
+                    this.todoservice = todoservice;
                 }
-                AppComponent = __decorate([
+                TodoList = __decorate([
                     core_1.Component({
-                        selector: 'hello-world',
-                        directives: [todo_input_1.TodoInput, todo_list_1.TodoList],
-                        template: '<h1>Hello World!</h1><todo-input></todo-input><todo-list></todo-list>'
+                        selector: 'todo-list',
+                        template: '<ul>\
+        <li *ngFor="#ts of todoservice.todos"> \
+            <span [hidden] = "ts.status == \'completed\'">{{ts.title}}</span>\
+            <div>{{ts.status}}</div>\
+            <button (click) = ts.toggled()>Toggled</button>\
+        </li>\
+        </ul>'
                     }), 
-                    __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                    __metadata('design:paramtypes', [todo_service_1.TodoService])
+                ], TodoList);
+                return TodoList;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("TodoList", TodoList);
+            ;
         }
     }
 });
-//# sourceMappingURL=app.helloworld.js.map
+//# sourceMappingURL=todo-list.js.map
