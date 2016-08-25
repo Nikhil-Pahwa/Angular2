@@ -1,0 +1,16 @@
+/*this is base scss*/
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Lato-Regular;
+    line-height: 1em;
+    // overflow-y: hidden;
+    margin: 0 auto;         
+    background-color: $body-bg-color; 
+    color: $base-font-color;                                            
+}

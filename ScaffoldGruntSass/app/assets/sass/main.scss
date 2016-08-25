@@ -1,0 +1,22 @@
+/* Utilities Styles */
+@import "utilities/mixins";
+@import "utilities/variables";
+
+/* Global Styles */
+@import "base/base";
+@import "base/normalize";
+@import "base/typography";
+
+/* Reusable Component Styles */ 
+ 
+/* Layout Specific Styles */
+@import "sections/header";
+@import "sections/footer";
+@import "sections/sidebar";
+@import "sections/tabs"; 
+
+/*overrides*/   
+@import "utilities/overrides";
+
+/* Responsive Styles */
+@import "base/responsive";

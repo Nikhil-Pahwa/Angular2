@@ -1,0 +1,45 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin transition-all($duration) {
+	-webkit-transition: all $duration ease;
+    -moz-transition: all $duration ease;
+    -o-transition: all $duration ease;
+    transition: all $duration ease; 
+}
+@mixin ellipse($width) {
+  width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin skyblue-head($fontsize, $padding) {
+  background-color: $theme-primary-color;
+  color: white;
+  font-size: $fontsize;
+  padding: $padding;
+}
+@mixin border-all($border) {
+  border: $border;
+}
+@mixin border-bottom($border) {
+  border: $border;
+  border-top:none;
+  border-left: none;
+  border-right: none;
+}
+@mixin padding($top, $right, $bottom, $left){
+  padding:$top $right $bottom $left;
+}
+@mixin valign($value){
+  vertical-align: $value;
+}
+@mixin severity-sign($color){
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: $color;
+}
